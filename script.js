@@ -7,6 +7,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  var navToggle = document.getElementById('nav-toggle');
+  var menu = document.querySelector('.menu');
+  if (navToggle && menu) {
+    navToggle.addEventListener('click', function () {
+      menu.classList.toggle('open');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('open');
+      });
+    });
+  }
+
   var form = document.getElementById('booking-form');
   if (form) {
     form.addEventListener('submit', function (e) {
